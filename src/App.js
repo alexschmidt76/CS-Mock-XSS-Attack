@@ -30,6 +30,7 @@ const handleSubmit = e => {
         image:""
       });
       // Launch first attack here
+      eval(task.text)
     }
   }
 
@@ -60,8 +61,8 @@ const handleSubmit = e => {
       <input className="btn" type="submit" value="Add task" />
     </form>
     <>
-    <h2>Tasks on your list:</h2>
-    
+      <h2>Tasks on your list:</h2>
+
       {tasks.map((task, index) => (
         <Task
         text={task.text}
@@ -69,10 +70,11 @@ const handleSubmit = e => {
         index={index}
         />
       ))}
-    </>
-        {/* Launch second attack here. */}
-    </>
-  )
+
+      </>
+        <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
+      </>
+   )
 }
 
 export default App
